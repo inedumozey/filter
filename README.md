@@ -106,6 +106,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
     // if input value is empty string or not specified at all, all the object will be returned
 ...
 
+
 ### Using paths instead of keys
 
 ...
@@ -138,7 +139,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
     */
 
     // the object can be filtered using name or email
-    ...
+...
 
 
 ## using callback
