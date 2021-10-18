@@ -4,7 +4,7 @@
   "description": "find-filter.js filters array of object with few lines of codes. It is scalable, light weight and very easy to use",
   "main": "fine-filter.js",
   "scripts": {
-    "test": "node /src/test/index.js"
+    "test": "node src/test/index.js"
   },
   "repository": {
     "type": "git",
