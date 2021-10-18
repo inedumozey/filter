@@ -107,73 +107,74 @@ fine-filter accept an object that has a total of 5 properties out of which only 
 ...
 
 ### Using paths instead of keys
+
 ...
 
-fine-filter({
+    fine-filter({
 
-    data: arrayObj,
-    paths: {
-        name: [ "name", ],
-        email: [ "email" ]
-    },
-    input: "example4@gmail.com",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: arrayObj,
+        paths: {
+            name: [ "name", ],
+            email: [ "email" ]
+        },
+        input: "example4@gmail.com",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
         }
-    }
 
-})
+    })
 
-/*
-    {
-        id: "3",
-        name: "name3",
-        product: "product3",
-        email: "example4@gmail.com"
-    },
-*/
+    /*
+        {
+            id: "3",
+            name: "name3",
+            product: "product3",
+            email: "example4@gmail.com"
+        },
+    */
 
-// the object can be filtered using name or email
+    // the object can be filtered using name or email
+    ...
 
-...
 
 ## using callback
 
 ...
 
-fine-filter({
+    fine-filter({
 
-    data: arrayObj,
-    paths: ()=>{
-        return {
-            name: [ "name", ],
-            email: [ "email" ]
+        data: arrayObj,
+        paths: ()=>{
+            return {
+                name: [ "name", ],
+                email: [ "email" ]
+            }
+        },
+        input: "example4@gmail.com",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
         }
-    },
-    input: "example4@gmail.com",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
-        }
-    }
 
-})
-    
-/*
-    {
-        id: "3",
-        name: "name3",
-        product: "product3",
-        email: "example4@gmail.com"
-    },
-*/
+    })
+        
+    /*
+        {
+            id: "3",
+            name: "name3",
+            product: "product3",
+            email: "example4@gmail.com"
+        },
+    */
 
-// the object can be filtered using name or email
+    // the object can be filtered using name or email
 ...
 
 
@@ -182,169 +183,167 @@ paths is more important when filtering complex object
 
 ...
 
-const data = [
-    {
-        id:1,
-        name: "phones",
-        location: "US",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["pink", "red"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["brown", "black"]
-            }
-        ]
-    },
+    const data = [
+        {
+            id:1,
+            name: "phones",
+            location: "US",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["pink", "red"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["brown", "black"]
+                }
+            ]
+        },
 
-    {
-        id: 2,
-        name: "cars",
-        location: "France",
-        types:[
-            {
-                id: 1,
-                name: "Renault",
-                colors: ["green", "gray"]
-            },
-            {
-                id: 2,
-                name: "Bugatti",
-                colors: ["white", "black"]
-            }
-        ]
-    },
- 
-    {
-        id:3,
-        name: "phones",
-        location: "Nigeria",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["yellow", "orange"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["gold", "dark blue"]
-            }
-        ]
-    },
-]
- 
+        {
+            id: 2,
+            name: "cars",
+            location: "France",
+            types:[
+                {
+                    id: 1,
+                    name: "Renault",
+                    colors: ["green", "gray"]
+                },
+                {
+                    id: 2,
+                    name: "Bugatti",
+                    colors: ["white", "black"]
+                }
+            ]
+        },
+    
+        {
+            id:3,
+            name: "phones",
+            location: "Nigeria",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["yellow", "orange"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["gold", "dark blue"]
+                }
+            ]
+        },
+    ]
 ...
 
 
 ## filtering using name using keys
 
 in this situation, "phones", "cars", "iPhone", "infinix" can be used to filter the object
+
 ...
 
+    fine-filter({
 
-fine-filter({
-
-    data: data,
-    keys: ()=>{
-        return [ "name ]
-    }
-    input: "iPhone",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: data,
+        keys: ()=>{
+            return [ "name ]
         }
-    }
-
-})
-
-
-/* 
-    {
-        id:1,
-        name: "phones",
-        location: "US",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["pink", "red"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["brown", "black"]
+        input: "iPhone",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
             }
-        ]
-    },
-    {
-        id:3,
-        name: "phones",
-        location: "Nigeria",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["yellow", "orange"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["gold", "dark blue"]
-            }
-        ]
-    }
-
-*/
-
-...
-
-
-...
-
-fine-filter({
-
-    data: data,
-    keys: ()=>{
-        return [ "name ]
-    }
-    input: "cars",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
         }
-    }
 
-})
+    })
 
-/*
-    {
-        id: 2,
-        name: "cars",
-        location: "France",
-        types:[
-            {
-                id: 1,
-                name: "Renault",
-                colors: ["green", "gray"]
-            },
-            {
-                id: 2,
-                name: "Bugatti",
-                colors: ["white", "black"]
+
+    /* 
+        {
+            id:1,
+            name: "phones",
+            location: "US",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["pink", "red"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["brown", "black"]
+                }
+            ]
+        },
+        {
+            id:3,
+            name: "phones",
+            location: "Nigeria",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["yellow", "orange"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["gold", "dark blue"]
+                }
+            ]
+        }
+
+    */
+...
+
+
+...
+
+    fine-filter({
+
+        data: data,
+        keys: ()=>{
+            return [ "name ]
+        }
+        input: "cars",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
             }
-        ]
-    },
+        }
 
-*/
+    })
+
+    /*
+        {
+            id: 2,
+            name: "cars",
+            location: "France",
+            types:[
+                {
+                    id: 1,
+                    name: "Renault",
+                    colors: ["green", "gray"]
+                },
+                {
+                    id: 2,
+                    name: "Bugatti",
+                    colors: ["white", "black"]
+                }
+            ]
+        },
+
+    */
 ...
 
 
@@ -352,87 +351,87 @@ fine-filter({
 
 ...
 
+    fine-filter({
 
-fine-filter({
-
-    data: data,
-    paths: {
-        phoneName: ["types", "0", "name"]
-    }
-    input: "iPhone",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: data,
+        paths: {
+            phoneName: ["types", "0", "name"]
         }
-    }
-
-})
-
-/*
-
-    id:1,
-        name: "phones",
-        location: "US",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["pink", "red"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["brown", "black"]
+        input: "iPhone",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
             }
-        ]
-    }, 
-    {
-        id:3,
-        name: "phones",
-        location: "Nigeria",
-        types:[
-            {
-                id: 1,
-                name: "iPhone",
-                colors: ["yellow", "orange"]
-            },
-            {
-                id: 2,
-                name: "Infinix",
-                colors: ["gold", "dark blue"]
-            }
-        ]
-    },
-
-
-    the paths is directed to the 2nd ordered name, types.0.name, meaning name at index 0 of type
-    if i tried to search for car, it will return empty array
-
-*/
-
-fine-filter({
-
-    data: data,
-    paths: {
-        phoneName: ["types", "0", "name"]
-    }
-    input: "car",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
         }
-    }
 
-})
+    })
 
-/*
-    []
+    /*
+        id:1,
+            name: "phones",
+            location: "US",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["pink", "red"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["brown", "black"]
+                }
+            ]
+        }, 
+        {
+            id:3,
+            name: "phones",
+            location: "Nigeria",
+            types:[
+                {
+                    id: 1,
+                    name: "iPhone",
+                    colors: ["yellow", "orange"]
+                },
+                {
+                    id: 2,
+                    name: "Infinix",
+                    colors: ["gold", "dark blue"]
+                }
+            ]
+        },
+    */
 
-*/
+    // the paths is directed to the 2nd ordered name, types.0.name, meaning name at index 0 of type
+    // if i tried to search for car, it will return empty array
+
+...
+
+...
+
+    fine-filter({
+
+        data: data,
+        paths: {
+            phoneName: ["types", "0", "name"]
+        }
+        input: "car",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
+        }
+
+    })
+
+    /*
+        []
+
+    */
 ...
 
 ## Using keys and paths together
@@ -444,22 +443,22 @@ For examples
 
 ...
 
-fine-filter({
+    fine-filter({
 
-    data: data,
-    keys: [ "name" ]
-    paths: {
-        colors: ["types", "0", "colors"]
-    }
-    input: "colors",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: data,
+        keys: [ "name" ]
+        paths: {
+            colors: ["types", "0", "colors"]
         }
-    }
-})
+        input: "colors",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
+        }
+    })
 
     /*
         you can defined as many paths as you want
@@ -471,45 +470,45 @@ fine-filter({
 
 ...
 
-fine-filter({
+    fine-filter({
 
-    data: data,
-    keys: [ "name", "id ]
-    paths: {
-        colors: ["types", "0", "colors"]
-    }
-    input: "1",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: data,
+        keys: [ "name", "id ]
+        paths: {
+            colors: ["types", "0", "colors"]
         }
-    }
-})
+        input: "1",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
+        }
+    })
 ...
 
 
 ...
 
-fine-filter({
+    fine-filter({
 
-    data: data,
-    keys: [ "id", "location" ]
-    paths: {
-        colors: ["types", "0", "colors"],
-        colors: ["types", "1", "colors"],
-        colors: ["types", "1", "name"],
-    }
-    input: "dark blue",
-    cb: (data, err)=>{
-        if(err){
-            console.log(err)
-        }else{
-            console.log(data)
+        data: data,
+        keys: [ "id", "location" ]
+        paths: {
+            colors: ["types", "0", "colors"],
+            colors: ["types", "1", "colors"],
+            colors: ["types", "1", "name"],
         }
-    }
-})
+        input: "dark blue",
+        cb: (data, err)=>{
+            if(err){
+                console.log(err)
+            }else{
+                console.log(data)
+            }
+        }
+    })
 ...
 
 
