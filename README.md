@@ -78,8 +78,12 @@ fine-filter accept an object that has a total of 5 properties out of which only 
             email: "example4@gmail.com"
         }
     ]
+...
 
-   fine-filter({
+
+...
+
+    fine-filter({
        data: arrayObj,
        keys: [ "name", "email" ],
        input: "example4@gmail.com",
