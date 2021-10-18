@@ -47,6 +47,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
 ## Example codes
 
 ##  Simple 
+
 ...
    
     import fine-filter from "fine-filter"
@@ -79,7 +80,6 @@ fine-filter accept an object that has a total of 5 properties out of which only 
     ]
 
    fine-filter({
-
        data: arrayObj,
        keys: [ "name", "email" ],
        input: "example4@gmail.com",
@@ -90,7 +90,6 @@ fine-filter accept an object that has a total of 5 properties out of which only 
                console.log(data)
            }
        }
-
    })
     
     /*
@@ -99,7 +98,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
             name: "name3",
             product: "product3",
             email: "example4@gmail.com"
-        },
+        }
     */
 
     // the object can be filtered using name or email
