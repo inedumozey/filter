@@ -84,7 +84,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
 ...
 
     fine-filter({
-        
+
        data: arrayObj,
        keys: [ "name", "email" ],
        input: "example4@gmail.com",
@@ -106,8 +106,7 @@ fine-filter accept an object that has a total of 5 properties out of which only 
         }
     */
 
-    // the object can be filtered using name or email
-    // if input value is empty string or not specified at all, all the object will be returned
+    // the object can be filtered using name or email. If input value is empty string or not specified at all, all the object will be returned
 ...
 
 
