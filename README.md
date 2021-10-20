@@ -56,7 +56,7 @@ filter accept an object that has a total of 5 properties out of which only one i
         input: ""
     })
 
-    //console.log(filterdData)
+    console.log(filterdData)
 
     OR
 
@@ -77,11 +77,12 @@ filter accept an object that has a total of 5 properties out of which only one i
         }
     })
 
-    //console.log(filterdData)
+    console.log(filterdData)
 
     OR
 
     // passing callback to get the filtered Data
+
     filter({
         data: [],
         keys: ["", "", "", ...],
