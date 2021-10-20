@@ -1,9 +1,9 @@
-# filter.js
+# fine-filter.js
 
-filter.js filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size
+fine-filter.js filters array of objects with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of objects of any size
 
 ## Description
-filter.js is a light weight, plain javascript package that can be used to filter large array of object.
+filter.js is a light weight, plain javascript package that can be used to filter large array of objects.
 Can be used for simple array of objects as well as complex ones
 
 ## Installation
@@ -44,6 +44,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 # Syntax
 
 ...
+    // const filteredData = filter({})
 
     const filterdData = filter({
         data: [],
@@ -60,7 +61,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 
     OR
 
-    const filterdData = filter({
+    const filterdData2 = filter({
         data: [],
         keys: ()=>{
                 return ["", "", "", ...]
@@ -77,7 +78,7 @@ filter accept an object that has a total of 5 properties out of which only one i
         }
     })
 
-    console.log(filterdData)
+    console.log(filterdData2)
 
     OR
 
@@ -102,7 +103,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 
 # Example codes
 
-###  With Simple Array of Object
+###  With Simple Array of Objects
 
 ...
    
@@ -162,7 +163,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 ...
 
 
-### Using paths
+### Using "paths"
 
 ...
 
@@ -193,7 +194,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 ...
 
 
-## With more complex array of Object
+## With more complex array of Objects
 
 paths is more usefull when dealing with more complex object 
 
@@ -475,5 +476,5 @@ For examples
 ...
 
 ## Reach me;
-* <a href="tel: 08036000347" style="color: red">whatsApp/Call: +2348036000347</a>
+* whatsApp/Call: +2348036000347
 * [Facebook](https://www.facebook.com/mozey.inedu.3)
