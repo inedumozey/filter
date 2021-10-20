@@ -45,56 +45,56 @@ filter accept an object that has a total of 5 properties out of which only one i
 
 ...
 
-const filterdData = filter({
-    data: [],
-    keys: ["", "", "", ...],
-    paths: {
-        path_1: ["", "", "", ...],
-        path_2: ["", "", "", ...],
-        path_3: ["", "", "", ...]
-    },
-    input: ""
-})
-
-//console.log(filterdData)
-
-OR
-
-const filterdData = filter({
-    data: [],
-    keys: ()=>{
-            return ["", "", "", ...]
-        },
-    paths: ()=>{
-        return {
+    const filterdData = filter({
+        data: [],
+        keys: ["", "", "", ...],
+        paths: {
             path_1: ["", "", "", ...],
             path_2: ["", "", "", ...],
             path_3: ["", "", "", ...]
         },
-    },
-    input: ()=>{
-        return ""
-    }
-})
+        input: ""
+    })
 
-//console.log(filterdData)
+    //console.log(filterdData)
 
-OR
+    OR
 
-// passing callback to get the filtered Data
-filter({
-    data: [],
-    keys: ["", "", "", ...],
-    paths: {
-        path_1: ["", "", "", ...],
-        path_2: ["", "", "", ...],
-        path_3: ["", "", "", ...]
-    },
-    input: "",
-    cb: (data)=>{
-        console.log(data)
-    }
-})
+    const filterdData = filter({
+        data: [],
+        keys: ()=>{
+                return ["", "", "", ...]
+            },
+        paths: ()=>{
+            return {
+                path_1: ["", "", "", ...],
+                path_2: ["", "", "", ...],
+                path_3: ["", "", "", ...]
+            },
+        },
+        input: ()=>{
+            return ""
+        }
+    })
+
+    //console.log(filterdData)
+
+    OR
+
+    // passing callback to get the filtered Data
+    filter({
+        data: [],
+        keys: ["", "", "", ...],
+        paths: {
+            path_1: ["", "", "", ...],
+            path_2: ["", "", "", ...],
+            path_3: ["", "", "", ...]
+        },
+        input: "",
+        cb: (data)=>{
+            console.log(data)
+        }
+    })
 ...
 
 
@@ -420,8 +420,8 @@ If you do not want the behavior of global filter above, paths is here just for y
 ...
 
 
-# Global filtering with Local Filtering
-## Using keys and paths simultaneously
+# Global and Local Filtering
+## Using keys and paths concurrently
 
 For examples
 * Global filtring with name and email in "keys"
