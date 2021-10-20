@@ -1,10 +1,10 @@
 # filter.js
 
-filter.js filters array of object with few lines of codes. It is scalable, light weight and very simple to use
+filter.js filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size
 
 ## Description
 filter.js is a light weight, plain javascript package that can be used to filter large array of object.
-Can be used for a simple array of objects as well as complex ones
+Can be used for simple array of objects as well as complex ones
 
 ## Installation
 `npm i fine-filter --save`
