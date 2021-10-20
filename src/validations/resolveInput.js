@@ -10,16 +10,16 @@ function resolveInput(input, cb){
             return input()
 
         }else{
-            cb(null, "must return a string");
-            return false
+            cb(null);
+            throw new Error("must return a string")
         }
     }
     else if(isString(input) || isNumber(input)){
         return input
 
     }else{
-        cb(null, "input format is invalid, must be either a string or function that returns a string")
-        return false
+        cb(null)
+        throw new Error("input format is invalid, must be either a string or function that returns a string")
     }
     
 }

@@ -15,22 +15,22 @@ function resolvePaths(paths, cb){
 
                     return paths()
                 }else{
-                    cb(null, "paths must return an object whose value(s) are array(s)");
-                    return false
+                    cb(null);
+                    throw new Error("paths must return an object whose value(s) are array(s)")
                 }  
             }            
 
         }else{
-            cb(null, "paths must return an object");
-            return false
+            cb(null);
+            throw new Error("paths must return an object")
         };
     }
     else if(isObject(paths)){
         return paths
 
     }else{
-        cb(null, "paths format is invalid, must be either object or function that an object")
-        return false
+        cb(null)
+        throw new Error("paths format is invalid, must be either object or function that an object")
     }
 }
 

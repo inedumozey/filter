@@ -7,16 +7,16 @@ function resolveKeys(keys, cb){
             return keys()
 
         }else{
-            cb(null, "must return array(s)");
-            return false
+            cb(null);
+            throw new Error("must return array(s)")
         }
     }
     else if(isArray(keys)){
         return keys
 
     }else{
-        cb(null, "key format is invalid, must be either array or function that returns array")
-        return false
+        cb(null)
+        throw new Error("key format is invalid, must be either array or function that returns array")
     }
 }
 

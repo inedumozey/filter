@@ -1,4 +1,5 @@
-function selectedPathVals(data, paths){
+
+function setSelectedPathValues(data, paths){
 
     if(paths.length) {
         return paths.reduce((obj, key)=>{ 
@@ -15,4 +16,4 @@ function selectedPathVals(data, paths){
         
 }
 
-export default selectedPathVals
+export default setSelectedPathValues

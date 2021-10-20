@@ -7,12 +7,12 @@ function resolveData(data, cb){
             return data
 
         }else{
-            cb(null, "data must be an array");
-            return false
+            cb(null);
+            throw new Error("data must be an array")
         }
     }else{
-        cb(null, "data is missing!");
-        return false;
+        cb(null);
+        throw new Error("data is missing!")
     }
 }
 

@@ -1,12 +1,10 @@
-## find-filter.js
+# filter.js
 
-find-filter.js filters array of object with few lines of codes. It is scalable, light weight and very easy to use
+filter.js filters array of object with few lines of codes. It is scalable, light weight and very simple to use
 
 ## Description
-find-filter.js is a light weight, plain javascript package that can be used to filter large array of object.
-Has no any library, hence very fast.
-
-It can be used for a simple array of objects as well as complex ones
+filter.js is a light weight, plain javascript package that can be used to filter large array of object.
+Can be used for a simple array of objects as well as complex ones
 
 ## Installation
 `npm i fine-filter --save`
@@ -14,10 +12,10 @@ It can be used for a simple array of objects as well as complex ones
 ## Usage
 ...
     
-    import find from "fine-filter";
+    import filter from "fine-filter";
 ...
 
-fine-filter accept an object that has a total of 5 properties out of which only one is compulsary.
+filter accept an object that has a total of 5 properties out of which only one is compulsary. It also returns the filtered array, you can assign it to a variable to them
 
 1. data: 
     * data accepts only an array of object.
@@ -39,18 +37,75 @@ fine-filter accept an object that has a total of 5 properties out of which only 
     * accepts a string or a function that returns a string of the values you are searching from the array
 
 5. cb:
-    * accepts a callback that receives 2 arguments.
-    * The first returns the filtered array
-    * Second returns error if not null
-    * not compulsary property but neccessary to view the filtered data
+    * accepts a callback that receives a parameter which holds the return filtered array
+    * not compulsary property but neccessary to view the filtered data,
+    * the filter function return the filtered array, you can assign it to a variable to get the filtered data
 
-## Example codes
+# Syntax
 
-##  Simple 
+...
+
+const filterdData = filter({
+    data: [],
+    keys: ["", "", "", ...],
+    paths: {
+        path_1: ["", "", "", ...],
+        path_2: ["", "", "", ...],
+        path_3: ["", "", "", ...]
+    },
+    input: ""
+})
+
+//console.log(filterdData)
+
+OR
+
+const filterdData = filter({
+    data: [],
+    keys: ()=>{
+            return ["", "", "", ...]
+        },
+    paths: ()=>{
+        return {
+            path_1: ["", "", "", ...],
+            path_2: ["", "", "", ...],
+            path_3: ["", "", "", ...]
+        },
+    },
+    input: ()=>{
+        return ""
+    }
+})
+
+//console.log(filterdData)
+
+OR
+
+// passing callback to get the filtered Data
+filter({
+    data: [],
+    keys: ["", "", "", ...],
+    paths: {
+        path_1: ["", "", "", ...],
+        path_2: ["", "", "", ...],
+        path_3: ["", "", "", ...]
+    },
+    input: "",
+    cb: (data)=>{
+        console.log(data)
+    }
+})
+...
+
+
+
+# Example codes
+
+###  With Simple Array of Object
 
 ...
    
-    import fine-filter from "fine-filter"
+    import filter from "fine-filter"
 
     const arrayObj = [
         {
@@ -83,107 +138,67 @@ fine-filter accept an object that has a total of 5 properties out of which only 
 
 ...
 
-    fine-filter({
-
+    const newData = filter({
        data: arrayObj,
-       keys: [ "name", "email" ],
-       input: "example4@gmail.com",
-       cb: (data, err)=>{
-           if(err){
-               console.log(err)
-           }else{
-               console.log(data)
-           }
-       }
+       keys: [ "name" ],
+       input: "name2",
    })
     
+    console.log(newData)
+
     /*
-        {
-            id: "3",
-            name: "name3",
-            product: "product3",
-            email: "example4@gmail.com"
-        }
+        [
+            {
+                id: '2',
+                name: 'name2',
+                product: 'product2',
+                email: 'example2@gmail.com'
+            }
+        ]
     */
 
     // the object can be filtered using name or email. If input value is empty string or not specified at all, all the object will be returned
 ...
 
 
-### Using paths instead of keys
+### Using paths
 
 ...
 
-    fine-filter({
+    filter({
 
         data: arrayObj,
         paths: {
             name: [ "name", ],
             email: [ "email" ]
         },
-        input: "example4@gmail.com",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
+        input: "example1@gmail.com",
+        cb: data=> console.log(data)
 
     })
 
-    /*
-        {
-            id: "3",
-            name: "name3",
-            product: "product3",
-            email: "example4@gmail.com"
-        }
-    */
-
     // the object can be filtered using name or email
-...
 
-
-## using callback
-
-...
-
-    fine-filter({
-
-        data: arrayObj,
-        paths: ()=>{
-            return {
-                name: [ "name", ],
-                email: [ "email" ]
-            }
-        },
-        input: "example4@gmail.com",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
-
-    })
-        
     /*
-        {
-            id: "3",
-            name: "name3",
-            product: "product3",
-            email: "example4@gmail.com"
-        },
+        [
+            {
+                id: '1',
+                name: 'name1',
+                product: 'product1',
+                email: 'example1@gmail.com'
+            }
+        ]
     */
-
-    // the object can be filtered using name or email
 ...
 
 
-## more complex
-paths is more important when filtering complex object
+## With more complex array of Object
+
+paths is more usefull when dealing with more complex object 
+
+# Global filtering
+## filtering the array with name using "keys"
+When a particular object has same variable names as properties, for example the object above has "name" properties defined in several paths, (name, types[0].name and types[1].name). When a "keys" is used to define the key you want to filter the object with, and "name" is passed, all values assign to all the "name" properties can be used to filter the array. 
 
 ...
 
@@ -244,192 +259,158 @@ paths is more important when filtering complex object
     ]
 ...
 
-
-## filtering using name using keys
-
-in this situation, "phones", "cars", "iPhone", "infinix" can be used to filter the object
-
 ...
 
-    fine-filter({
-
+    filter({
         data: data,
-        keys: ()=>{
-            return [ "name ]
-        }
+        keys: ()=> [ "name" ],
         input: "iPhone",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
-
+        cb: data = > console.log(data)
     })
-
+    
 
     /* 
-        {
-            id:1,
-            name: "phones",
-            location: "US",
-            types:[
-                {
-                    id: 1,
-                    name: "iPhone",
-                    colors: ["pink", "red"]
-                },
-                {
-                    id: 2,
-                    name: "Infinix",
-                    colors: ["brown", "black"]
-                }
-            ]
-        },
-        {
-            id:3,
-            name: "phones",
-            location: "Nigeria",
-            types:[
-                {
-                    id: 1,
-                    name: "iPhone",
-                    colors: ["yellow", "orange"]
-                },
-                {
-                    id: 2,
-                    name: "Infinix",
-                    colors: ["gold", "dark blue"]
-                }
-            ]
-        }
+        [
+            {
+                id: 1,
+                name: 'phones',
+                location: 'US',
+                types: [ [Object], [Object] ]
+            },
+            {
+                id: 3,
+                name: 'phones',
+                location: 'Nigeria',
+                types: [ [Object], [Object] ]
+            }
+        ]
 
     */
 ...
 
+...
+
+    filter({
+        data,
+        keys: ()=>[ "id", "location" ],
+        input: "nigeria",
+        cb: data=>console.log(data)
+    })
+    
+    /*
+        [
+            {
+                id: 3,
+                name: 'phones',
+                location: 'Nigeria',
+                types: [ [Object], [Object] ]
+            }
+        ]
+    */
+...
 
 ...
 
-    fine-filter({
-
-        data: data,
-        keys: ()=>{
-            return [ "name ]
-        }
+    filter({
+        data,
+        keys: [ "name" ],
         input: "cars",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
-
+        cb: data = >console.log(data)
     })
 
     /*
-        {
-            id: 2,
-            name: "cars",
-            location: "France",
-            types:[
-                {
-                    id: 1,
-                    name: "Renault",
-                    colors: ["green", "gray"]
-                },
-                {
-                    id: 2,
-                    name: "Bugatti",
-                    colors: ["white", "black"]
-                }
-            ]
-        },
+        [
+            {
+                id: 2,
+                name: "cars",
+                location: "France",
+                types:[
+                    {
+                        id: 1,
+                        name: "Renault",
+                        colors: ["green", "gray"]
+                    },
+                    {
+                        id: 2,
+                        name: "Bugatti",
+                        colors: ["white", "black"]
+                    }
+                ]
+            }
+        ]
 
     */
 ...
 
 
-## using paths to filter the object with a specific key
+# Local filtering
+## using paths to filter the object with a specific key - 
+If you do not want the behavior of global filter above, paths is here just for you. You can narrow your search to any properties you want by defining the object path explicitly. See examples below
 
 ...
 
-    fine-filter({
-
+    filter({
         data: data,
         paths: {
             phoneName: ["types", "0", "name"]
-        }
+        },
         input: "iPhone",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
+        cb: data=>console.log(data)
         }
 
     })
 
     /*
-        id:1,
-            name: "phones",
-            location: "US",
-            types:[
-                {
-                    id: 1,
-                    name: "iPhone",
-                    colors: ["pink", "red"]
-                },
-                {
-                    id: 2,
-                    name: "Infinix",
-                    colors: ["brown", "black"]
-                }
-            ]
-        }, 
-        {
-            id:3,
-            name: "phones",
-            location: "Nigeria",
-            types:[
-                {
-                    id: 1,
-                    name: "iPhone",
-                    colors: ["yellow", "orange"]
-                },
-                {
-                    id: 2,
-                    name: "Infinix",
-                    colors: ["gold", "dark blue"]
-                }
-            ]
-        },
+        [
+            {
+                id:1,
+                name: "phones",
+                location: "US",
+                types:[
+                    {
+                        id: 1,
+                        name: "iPhone",
+                        colors: ["pink", "red"]
+                    },
+                    {
+                        id: 2,
+                        name: "Infinix",
+                        colors: ["brown", "black"]
+                    }
+                ]
+            }, 
+            {
+                id:3,
+                name: "phones",
+                location: "Nigeria",
+                types:[
+                    {
+                        id: 1,
+                        name: "iPhone",
+                        colors: ["yellow", "orange"]
+                    },
+                    {
+                        id: 2,
+                        name: "Infinix",
+                        colors: ["gold", "dark blue"]
+                    }
+                ]
+            }
+        ]
     */
 
-    // the paths is directed to the 2nd ordered name, types.0.name, meaning name at index 0 of type
-    // if i tried to search for car, it will return empty array
+    // the paths is directed to the 2nd ordered name, types[0].name, i.e. name at index 0 of types
 
-...
 
-...
+    // if you try to search for car, it will return empty array since car is not one of the values of types[0].name
 
-    fine-filter({
-
+    filter({
         data: data,
         paths: {
             phoneName: ["types", "0", "name"]
-        }
+        },
         input: "car",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
-
+        cb: data=> console.log(data)
     })
 
     /*
@@ -438,82 +419,60 @@ in this situation, "phones", "cars", "iPhone", "infinix" can be used to filter t
     */
 ...
 
-## Using keys and paths together
-if you want to open a search and close th others.
+
+# Global filtering with Local Filtering
+## Using keys and paths simultaneously
+
 For examples
-
-* Searching the object using name, cars, phones, iPhone etc, specify "name" in keys
-* At the same, you want your client to search for colors in only index 1 of all the collections, specify the paths that lead to the "colors" in paths [ "types", "0", "colors" ]
+* Global filtring with name and email in "keys"
+* At the same time, Local filtering with colors in "paths"
 
 ...
 
-    fine-filter({
-
+    filter({
         data: data,
-        keys: [ "name" ]
+        keys: [ "name", "email" ],
         paths: {
-            colors: ["types", "0", "colors"]
-        }
-        input: "colors",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
+            colors_0: ["types", "0", "colors"],
+            colors_1: ["types", "1", "colors"]
+        },
+        input: "red",
+        cb: data=>console.log(data)
     })
 
-    /*
-        you can defined as many paths as you want
-        the properties can be named anything
-
-    */
+    // you can defined as many paths as you want. The properties can be named anything, not necessarily colors_0 or colors_1
 ...
 
 
 ...
 
-    fine-filter({
-
+    filter({
         data: data,
-        keys: [ "name", "id ]
+        keys: [ "name", "id" ],
         paths: {
             colors: ["types", "0", "colors"]
-        }
+        },
         input: "1",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
+        cb: data=>console.log(data)
     })
 ...
 
 
 ...
 
-    fine-filter({
-
+    filter({
         data: data,
-        keys: [ "id", "location" ]
+        keys: [ "id", "location" ],
         paths: {
-            colors: ["types", "0", "colors"],
-            colors: ["types", "1", "colors"],
-            colors: ["types", "1", "name"],
-        }
+            colors_0: ["types", "0", "colors"],
+            colors_1: ["types", "1", "colors"],
+            name: ["types", "1", "name"]
+        },
         input: "dark blue",
-        cb: (data, err)=>{
-            if(err){
-                console.log(err)
-            }else{
-                console.log(data)
-            }
-        }
+        cb: data=>console.log(data)
     })
 ...
 
-
-
+## Reach me;
+* <a href="tel: 08036000347" style="color: red">whatsApp/Call: +2348036000347</a>
+* [Facebook](https://www.facebook.com/mozey.inedu.3)

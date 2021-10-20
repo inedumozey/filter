@@ -1,14 +1,15 @@
 {
   "name": "fine-filter",
   "version": "1.0.0",
-  "description": "find-filter.js filters array of object with few lines of codes. It is scalable, light weight and very easy to use",
-  "main": "fine-filter.js",
+  "description": "filter.js filters array of object with few lines of codes. It is scalable, light weight and very easy to use",
+  "main": "index.js",
   "scripts": {
-    "test": "node src/test/index.js"
+    "test": "node index.test.js",
+    "prepublish": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/inedumozey/fine-filter.git"
+    "url": "git+https://github.com/inedumozey/filter.git"
   },
   "keywords": [
     "fine-filter",
@@ -17,8 +18,8 @@
   "author": "mozey inedu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/inedumozey/fine-filter/issues"
+    "url": "https://github.com/inedumozey/filter/issues"
   },
   "type": "module",
-  "homepage": "https://github.com/inedumozey/fine-filter#readme"
+  "homepage": "https://github.com/inedumozey/filter#readme"
 }
