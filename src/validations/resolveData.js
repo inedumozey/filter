@@ -1,9 +1,9 @@
-import { isArray } from "../checkers/checkers.js";
+const check = require("@mozeyinedu/check")
 
 function resolveData(data, cb){
 
     if(data){
-        if(isArray(data)){
+        if(check.isArray(data)){
             return data
 
         }else{
@@ -16,4 +16,4 @@ function resolveData(data, cb){
     }
 }
 
-export default resolveData
+module.exports = resolveData

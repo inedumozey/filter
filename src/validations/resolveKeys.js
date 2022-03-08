@@ -1,9 +1,9 @@
-import { isArray, isFunction } from "../checkers/checkers.js";
+const check = require("@mozeyinedu/check")
 
 function resolveKeys(keys, cb){
 
-    if(isFunction(keys)){
-        if(isArray(keys())){
+    if(check.isFunction(keys)){
+        if(check.isArray(keys())){
             return keys()
 
         }else{
@@ -11,7 +11,7 @@ function resolveKeys(keys, cb){
             throw new Error("must return array(s)")
         }
     }
-    else if(isArray(keys)){
+    else if(check.isArray(keys)){
         return keys
 
     }else{
@@ -20,4 +20,4 @@ function resolveKeys(keys, cb){
     }
 }
 
-export default resolveKeys
+module.exports = resolveKeys

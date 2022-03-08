@@ -1,18 +1,23 @@
-# fine-filter.js
+# @mozeyinedu/filter.js
 
-fine-filter.js filters array of objects with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of objects of any size
+filter.js filters array of objects with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of objects of any size
 
 ## Description
 filter.js is a light weight, plain javascript package that can be used to filter large array of objects.
 Can be used for simple array of objects as well as complex ones
 
 ## Installation
-`npm i fine-filter --save`
+`npm i @mozeyinedu/filter`
 
 ## Usage
 ...
     
-    import filter from "fine-filter";
+    import filter from "@mozeyinedu/filter";
+...
+
+...
+    
+    const filter = require("@mozeyinedu/filter");
 ...
 
 filter accept an object that has a total of 5 properties out of which only one is compulsary. It also returns the filtered array, you can assign it to a variable to them
@@ -24,22 +29,22 @@ filter accept an object that has a total of 5 properties out of which only one i
 3. keys: 
     * keys accepts an array or a function that returns an array of strings of properties you are searching for from the object
     * Only the properties specified can be searched for
-    * If no keys specified, the function search through the paths (seen below) for the object path, if non found, all the keys will be up to search through
+    * If no keys specified, the function search through the paths (below) for the object path, if non found, all the keys will be up to flter through
     * It is not specific, if a "name" is specified as a key to filter, all other name in the object will be use to filter the object as well
     * Optioanl
 
 3. paths: 
     * paths accepts an object of array(s) of the paths from the object you are searching or accepts a function that returns same thing
-    * In this paths, you can customize exactly what you want to allow your client to filter only the keys by setting the paths explicitly
+    * In this paths, you can customize exactly what you want to allow your client to filter
     * Optional.
 
 4. input:
     * accepts a string or a function that returns a string of the values you are searching from the array
 
 5. cb:
-    * accepts a callback that receives a parameter which holds the return filtered array
+    * a callback that receives a parameter which holds the returned filtered array
     * not compulsary property but neccessary to view the filtered data,
-    * the filter function return the filtered array, you can assign it to a variable to get the filtered data
+    * the filter function itself returns the filtered array, you can assign it to a variable to get the filtered data also
 
 # Syntax
 
@@ -317,7 +322,7 @@ When a particular object has same variable names as properties, for example the 
         data,
         keys: [ "name" ],
         input: "cars",
-        cb: data = >console.log(data)
+        cb: data =>console.log(data)
     })
 
     /*

@@ -1,18 +1,22 @@
 {
-  "name": "fine-filter",
-  "version": "1.0.3",
-  "description": "filter.js filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size",
-  "main": "filter.js",
+  "name": "@mozeyinedu/filter",
+  "version": "1.0.0",
+  "description": "@mozeyinedu/filter filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size",
+  "main": "build/bundle.js",
   "scripts": {
     "test": "node index.test.js",
-    "prepublish": "npm test"
+    "prepublish": "npm test",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/inedumozey/filter.git"
   },
   "keywords": [
-    "fine-filter",
+    "search",
+    "mozey",
+    "inedu",
+    "mozeyinedu",
     "filter"
   ],
   "author": "mozey inedu",
@@ -20,6 +24,15 @@
   "bugs": {
     "url": "https://github.com/inedumozey/filter/issues"
   },
-  "type": "module",
-  "homepage": "https://github.com/inedumozey/filter#readme"
+  "homepage": "https://github.com/inedumozey/filter#readme",
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.16.11",
+    "babel-loader": "^8.2.3",
+    "webpack": "^5.59.0",
+    "webpack-cli": "^4.9.1"
+  },
+  "dependencies": {
+    "@mozeyinedu/check": "^1.0.2"
+  }
 }

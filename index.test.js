@@ -1,5 +1,4 @@
-import filter from "./src/filter.js"
-
+const filter = require('./build/bundle.js')
 
 const data = [
     {
@@ -63,7 +62,7 @@ const newArray = filter({
     input: "nigeria"
 })
 
-function runTest(){
+function runTest(newArray){
     console.log('************starting test************')
     console.log('')
 
@@ -71,7 +70,9 @@ function runTest(){
         throw new Error("internal error")
     }
 
-    console.log('')
-    console.log('************test ended with no problem************')
+    setTimeout(()=>{
+        console.log('')
+        console.log('************test ended with no problem************')
+    }, 2000)
 }
-runTest()
+runTest(newArray)

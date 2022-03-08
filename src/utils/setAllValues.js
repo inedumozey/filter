@@ -1,4 +1,4 @@
-import { isArray, isObject, isString } from "../checkers/checkers.js";
+const check = require("@mozeyinedu/check")
 
 
 function setAllVals(data, key){
@@ -11,19 +11,19 @@ function setAllVals(data, key){
         for(let i=0; i < key.length; i++){
             for(let vals in data){
                 
-                if(typeof data[vals] === 'object' && !Array.isArray(data[vals])){
+                if(typeof data[vals] === 'object' && !check.isArray(data[vals])){
                     recurse(data[vals])                        
                 }
 
-                if(isArray(data[vals])){
+                if(check.isArray(data[vals])){
                     for(let k of data[vals]){
-                        if(isString(k)){
+                        if(check.isString(k)){
                             if(key[i] === vals){
-                                allVals += k + " ";  
+                                allValues += k + " ";  
                             }
                         };
                         
-                        if(isObject(k)){
+                        if(check.isObject(k)){
                             recurse(k)
                         };
                     }
@@ -40,4 +40,4 @@ function setAllVals(data, key){
     return allValues;
 };
 
-export default setAllVals;
+module.exports = setAllVals;

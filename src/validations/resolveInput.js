@@ -1,12 +1,12 @@
-import { isString, isFunction, isNumber } from "../checkers/checkers.js";
+const check = require("@mozeyinedu/check")
 
 function resolveInput(input, cb){
     
     if(!input){
         return true
     }
-    if(isFunction(input)){
-        if(isString(input()) || isNumber(input())){
+    if(check.isFunction(input)){
+        if(check.isString(input()) || check.isNumber(input())){
             return input()
 
         }else{
@@ -14,7 +14,7 @@ function resolveInput(input, cb){
             throw new Error("must return a string")
         }
     }
-    else if(isString(input) || isNumber(input)){
+    else if(check.isString(input) || check.isNumber(input)){
         return input
 
     }else{
@@ -23,5 +23,4 @@ function resolveInput(input, cb){
     }
     
 }
-
-export default resolveInput
+module.exports = resolveInput

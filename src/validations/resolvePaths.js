@@ -1,17 +1,17 @@
-import { isFunction, isObject, isArray } from "../checkers/checkers.js";
+const check = require("@mozeyinedu/check")
 
 function resolvePaths(paths, cb){
     if(!paths){
         return true
     }
-    if(isFunction(paths)){
+    if(check.isFunction(paths)){
 
-        if(isObject(paths())){
+        if(check.isObject(paths())){
             let obj = paths()
 
             for(let i=0; i<Object.values(obj).length; i++){
                 
-                if(isArray(Object.values(obj)[i])){
+                if(check.isArray(Object.values(obj)[i])){
 
                     return paths()
                 }else{
@@ -25,7 +25,7 @@ function resolvePaths(paths, cb){
             throw new Error("paths must return an object")
         };
     }
-    else if(isObject(paths)){
+    else if(check.isObject(paths)){
         return paths
 
     }else{
@@ -34,4 +34,4 @@ function resolvePaths(paths, cb){
     }
 }
 
-export default resolvePaths
+module.exports = resolvePaths

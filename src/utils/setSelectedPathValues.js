@@ -12,8 +12,7 @@ function setSelectedPathValues(data, paths){
                      
     }else{
         return null
-    }
-        
+    }  
 }
 
-export default setSelectedPathValues
+module.exports =  setSelectedPathValues
