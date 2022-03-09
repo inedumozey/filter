@@ -1,4 +1,4 @@
-# @mozeyinedu/filter.js
+# @mozeyinedu/filter
 
 filter.js filters array of objects with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of objects of any size
 
