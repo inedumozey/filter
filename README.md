@@ -46,7 +46,7 @@ filter accept an object that has a total of 5 properties out of which only one i
     * not compulsary property but neccessary to view the filtered data,
     * the filter function itself returns the filtered array, you can assign it to a variable to get the filtered data also
 
-# Syntax
+### Syntax
 
 ...
     // const filteredData = filter({})
@@ -106,9 +106,9 @@ filter accept an object that has a total of 5 properties out of which only one i
 
 
 
-# Example codes
+### Example codes
 
-###  With Simple Array of Objects
+####  With Simple Array of Objects
 
 ...
    
@@ -168,7 +168,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 ...
 
 
-### Using "paths"
+#### Using "paths"
 
 ...
 
@@ -199,12 +199,13 @@ filter accept an object that has a total of 5 properties out of which only one i
 ...
 
 
-## With more complex array of Objects
+#### With more complex array of Objects
 
 paths is more usefull when dealing with more complex object 
 
-# Global filtering
-## filtering the array with name using "keys"
+### Global filtering
+
+#### filtering the array with name using "keys"
 When a particular object has same variable names as properties, for example the object above has "name" properties defined in several paths, (name, types[0].name and types[1].name). When a "keys" is used to define the key you want to filter the object with, and "name" is passed, all values assign to all the "name" properties can be used to filter the array. 
 
 ...
@@ -350,8 +351,9 @@ When a particular object has same variable names as properties, for example the 
 ...
 
 
-# Local filtering
-## using paths to filter the object with a specific key - 
+### Local filtering
+
+#### using paths to filter the object with a specific key - 
 If you do not want the behavior of global filter above, paths is here just for you. You can narrow your search to any properties you want by defining the object path explicitly. See examples below
 
 ...
@@ -427,8 +429,9 @@ If you do not want the behavior of global filter above, paths is here just for y
 ...
 
 
-# Global and Local Filtering
-## Using keys and paths concurrently
+### Global and Local Filtering
+
+#### Using keys and paths concurrently
 
 For examples
 * Global filtring with name and email in "keys"
@@ -480,6 +483,6 @@ For examples
     })
 ...
 
-## Reach me;
+#### Reach me;
 * whatsApp/Call: +2348036000347
 * [Facebook](https://www.facebook.com/mozey.inedu.3)
