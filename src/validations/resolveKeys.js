@@ -8,7 +8,7 @@ function resolveKeys(keys, cb){
 
         }else{
             cb(null);
-            throw new Error("must return array(s)")
+            throw new Error("function must returns array(s)")
         }
     }
     else if(check.isArray(keys)){
