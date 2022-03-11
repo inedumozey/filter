@@ -9,6 +9,7 @@ const setAllValues = require('./utils/setAllValues.js');
 
 function filter({data=null, paths={}, keys=[], input="", cb=(data)=>{}}){
 
+   
     // resolving validations
     let path = resolvePaths(paths, cb);
     let key = resolveKeys(keys, cb);
@@ -18,7 +19,7 @@ function filter({data=null, paths={}, keys=[], input="", cb=(data)=>{}}){
     // check if all validations are passed
     if(path && key && dataArray && inputStr){
         
-        const filterArray = data.filter(data=>{
+        const filterArray = dataArray.filter(data=>{
 
             //loop through all the paths and push them to a single array
             let selectedPaths = []
@@ -43,6 +44,8 @@ function filter({data=null, paths={}, keys=[], input="", cb=(data)=>{}}){
         cb(filterArray)
         return filterArray
     }
+
+    
       
 }
 

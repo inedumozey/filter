@@ -23,7 +23,7 @@ Can be used for simple array of objects as well as complex ones
 filter accept an object that has a total of 5 properties out of which only one is compulsary. It also returns the filtered array, you can assign it to a variable to them
 
 1. data: 
-    * data accepts only an array of object.
+    * data accepts an array of object or function that returns an array.
     * It is compulsary
 
 3. keys: 
@@ -67,7 +67,7 @@ filter accept an object that has a total of 5 properties out of which only one i
     OR
 
     const filterdData2 = filter({
-        data: [],
+        data: ()=>[],
         keys: ()=>{
                 return ["", "", "", ...]
             },
@@ -174,7 +174,7 @@ filter accept an object that has a total of 5 properties out of which only one i
 
     filter({
 
-        data: arrayObj,
+        data: ()=>arrayObj,
         paths: {
             name: [ "name", ],
             email: [ "email" ]

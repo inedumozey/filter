@@ -57,10 +57,12 @@ const data = [
 ]
 
 const newArray = filter({
-    data,
+    data: ()=>data,
     keys: [ "id", "location" ],
     input: "nigeria"
+
 })
+
 
 function runTest(newArray){
     console.log('************starting test************')
