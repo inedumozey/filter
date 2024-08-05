@@ -8,7 +8,7 @@
     "build": "rm -rf lib/ && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module CommonJs --outDir lib/cjs",
-    "publish": "npm publish --access public",
+    "publish_": "npm publish --access public",
     "push": "git add . && git commit -m 'updated' && git push origin master",
     "all": "npm run build && npm run push && npm run publish_"
   },
