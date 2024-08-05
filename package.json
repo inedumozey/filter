@@ -1,0 +1,39 @@
+{
+  "name": "@mozeyinedu/filter",
+  "version": "2.0.0",
+  "description": "@mozeyinedu/filter filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size",
+  "module": "lib/esm/index.js",
+  "main": "lib/cjs/index.js",
+  "scripts": {
+    "build": "rm -rf lib/ && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module CommonJs --outDir lib/cjs",
+    "publish": "npm publish --access public",
+    "push": "git add . && git commit -m 'updated' && git push origin master",
+    "all": "npm run build && npm run push && npm run publish_"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inedumozey/filter.git"
+  },
+  "keywords": [
+    "search",
+    "mozey",
+    "inedu",
+    "mozeyinedu",
+    "filter"
+  ],
+  "author": "mozey inedu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/inedumozey/filter/issues"
+  },
+  "homepage": "https://github.com/inedumozey/filter#readme",
+  "dependencies": {
+    "@mozeyinedu/check": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.8.2",
+    "typescript": "^5.2.2"
+  }
+}
