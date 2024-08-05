@@ -7,7 +7,7 @@ const resolveInput = require('./validations/resolveInput.js');
 const setAllValues = require('./utils/setAllValues.js');
 
 
-function filter({ data = null, paths = {}, keys = [], input = "", cb = (data: any) => { } }) {
+function filter({ data = null, paths = {}, keys = [], input = "", cb = (data: any) => { } }: { data: any, paths: any, keys: any, input: string, cb: any }) {
 
 
     // resolving validations

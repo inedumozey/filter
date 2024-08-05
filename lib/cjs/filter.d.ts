@@ -1,8 +1,8 @@
 declare function filter({ data, paths, keys, input, cb }: {
-    data?: null | undefined;
-    paths?: {} | undefined;
-    keys?: never[] | undefined;
-    input?: string | undefined;
-    cb?: ((data: any) => void) | undefined;
+    data: any;
+    paths: any;
+    keys: any;
+    input: string;
+    cb: any;
 }): any;
 export default filter;
