@@ -1,6 +1,6 @@
 {
   "name": "@mozeyinedu/filter",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "@mozeyinedu/filter filters array of object with few lines of codes. It is scalable, light weight and simple to use with both simple and complex array of object of any size",
   "module": "lib/esm/index.js",
   "main": "lib/cjs/index.js",
