@@ -7,7 +7,7 @@ import resolveInput from './validations/resolveInput.js';
 import setAllValues from './utils/setAllValues.js';
 
 
-function filter({ data = null, paths = {}, keys = [], input = "", cb = (data: any) => { } }: { data: any, paths: any, keys: any, input: string, cb: any }) {
+function filter({ data = null, paths = {}, keys = [], input = "", cb = (data?: any) => { } }: { data?: any, paths?: any, keys?: any, input?: string, cb?: any }) {
 
 
     // resolving validations
